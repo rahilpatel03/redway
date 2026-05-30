@@ -27,10 +27,37 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.getElementById('nav-links');
 
     if (menuToggle && navLinks) {
+        // Create overlay element
+        const overlay = document.createElement('div');
+        overlay.className = 'nav-overlay';
+        document.body.appendChild(overlay);
+
+        function openMenu() {
+            menuToggle.classList.add('active');
+            navLinks.classList.add('open');
+            overlay.classList.add('active');
+            document.body.classList.add('menu-open');
+        }
+
+        function closeMenu() {
+            menuToggle.classList.remove('active');
+            navLinks.classList.remove('open');
+            overlay.classList.remove('active');
+            document.body.classList.remove('menu-open');
+            // Close any open dropdowns
+            navLinks.querySelectorAll('.has-dropdown.active').forEach(dd => dd.classList.remove('active'));
+        }
+
         menuToggle.addEventListener('click', () => {
-            menuToggle.classList.toggle('active');
-            navLinks.classList.toggle('open');
+            if (navLinks.classList.contains('open')) {
+                closeMenu();
+            } else {
+                openMenu();
+            }
         });
+
+        // Overlay click closes menu
+        overlay.addEventListener('click', closeMenu);
 
         // Dropdown toggle on mobile
         navLinks.querySelectorAll('.has-dropdown > a').forEach(link => {
@@ -44,17 +71,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Close on link click
         navLinks.querySelectorAll('a:not(.has-dropdown > a)').forEach(link => {
-            link.addEventListener('click', () => {
-                menuToggle.classList.remove('active');
-                navLinks.classList.remove('open');
-            });
+            link.addEventListener('click', closeMenu);
         });
 
         // Close on click outside
         document.addEventListener('click', e => {
             if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
-                menuToggle.classList.remove('active');
-                navLinks.classList.remove('open');
+                closeMenu();
+            }
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape' && navLinks.classList.contains('open')) {
+                closeMenu();
             }
         });
     }
