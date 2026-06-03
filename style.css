@@ -313,7 +313,7 @@ body.menu-open {
 
 /* Dropdown */
 .has-dropdown {
-  position: relative;
+  position: static;
 }
 
 .has-dropdown>a i {
