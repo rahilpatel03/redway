@@ -86,7 +86,7 @@ body.menu-open {
   display: none;
   position: fixed;
   inset: 0;
-  z-index: 9999;
+  z-index: 9998;
   background: rgba(0, 0, 0, .6);
   opacity: 0;
   transition: opacity .35s var(--ease);
@@ -941,6 +941,7 @@ body.menu-open {
   justify-content: center;
   overflow: hidden;
   position: relative;
+  cursor: pointer;
 }
 
 .tile-image img {

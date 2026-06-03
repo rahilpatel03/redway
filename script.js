@@ -237,7 +237,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const lightboxClose = document.getElementById('lightbox-close');
 
     if (lightbox) {
-        document.querySelectorAll('.gallery-item').forEach(item => {
+        document.querySelectorAll('.gallery-item, .tile-image').forEach(item => {
             item.addEventListener('click', () => {
                 const img = item.querySelector('img');
                 if (lightboxImg) {
