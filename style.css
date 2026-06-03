@@ -1780,10 +1780,10 @@ body.menu-open {
   }
 
   .dropdown-panel {
-    position: static;
-    opacity: 1;
-    visibility: visible;
-    transform: none;
+    position: static !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
     box-shadow: none;
     background: transparent;
     border: none;
@@ -2407,13 +2407,18 @@ body.menu-open {
 
   .nav-links a,
   .dropdown-panel a,
-  .footer-links-col a,
   .tile-link,
   .link-arrow,
   .social-row a,
   .footer-social a {
     min-height: 44px;
     display: inline-flex;
+    align-items: center;
+  }
+
+  .footer-links-col a {
+    min-height: 44px;
+    display: flex;
     align-items: center;
   }
 
