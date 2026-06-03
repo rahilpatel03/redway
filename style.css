@@ -936,7 +936,7 @@ body.menu-open {
 
 .tile-image {
   height: 220px;
-  background: #f8f8f8;
+  background: var(--white);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -945,9 +945,9 @@ body.menu-open {
 }
 
 .tile-image img {
-  max-height: 180px;
-  width: auto;
-  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   transition: transform .5s var(--ease);
 }
 
