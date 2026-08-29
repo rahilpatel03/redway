@@ -1495,7 +1495,7 @@ body.menu-open {
 }
 
 .page-hero p {
-  color: var(--muted);
+  color: rgba(255, 255, 255, 0.85);
   font-size: 1.05rem;
   position: relative;
   z-index: 1;
@@ -1822,6 +1822,10 @@ body.menu-open {
   /* --- Logo size-down --- */
   .nav-logo img {
     height: 48px;
+  }
+
+  .navbar.scrolled .nav-logo img {
+    height: 42px;
   }
 
   .nav-logo strong {
@@ -2192,6 +2196,10 @@ body.menu-open {
     padding: 120px 0 50px;
   }
 
+  .page-hero::after {
+    height: 60px;
+  }
+
   .page-hero h1 {
     font-size: 1.8rem;
   }
@@ -2222,7 +2230,11 @@ body.menu-open {
 
   /* --- Navbar --- */
   .nav-logo img {
-    height: 36px;
+    height: 48px;
+  }
+
+  .navbar.scrolled .nav-logo img {
+    height: 40px;
   }
 
   .nav-logo strong {
@@ -2433,7 +2445,11 @@ body.menu-open {
   }
 
   .nav-logo img {
-    height: 32px;
+    height: 42px;
+  }
+
+  .navbar.scrolled .nav-logo img {
+    height: 36px;
   }
 
   .footer-logo-link img {
