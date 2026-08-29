@@ -44,6 +44,8 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -52,6 +54,7 @@ body {
   background: var(--body-bg);
   line-height: 1.7;
   overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
 }
 
 a {
@@ -313,7 +316,7 @@ body.menu-open {
 
 /* Dropdown */
 .has-dropdown {
-  position: static;
+  position: relative;
 }
 
 .has-dropdown>a i {
@@ -328,7 +331,7 @@ body.menu-open {
 
 .dropdown-panel {
   position: absolute;
-  top: calc(100% + 10px);
+  top: 100%;
   left: 50%;
   transform: translateX(-50%) translateY(8px);
   min-width: 680px;
@@ -346,6 +349,16 @@ body.menu-open {
   gap: 2px;
   max-height: 80vh;
   overflow-y: auto;
+}
+
+/* Invisible bridge to maintain hover when moving cursor from trigger to panel */
+.dropdown-panel::before {
+  content: '';
+  position: absolute;
+  top: -15px;
+  left: 0;
+  width: 100%;
+  height: 15px;
 }
 
 .has-dropdown:hover .dropdown-panel {
@@ -1882,6 +1895,7 @@ body.menu-open {
 
   .hero-title {
     font-size: 1.85rem;
+    word-wrap: break-word;
   }
 
   .hero-desc {
@@ -2005,6 +2019,27 @@ body.menu-open {
     padding: 60px 0;
   }
 
+  .cta-inner {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  .cta-text p {
+    margin: 0 auto 14px;
+  }
+
+  .cta-actions {
+    align-items: center;
+    width: 100%;
+  }
+
+  .cta-phone {
+    word-break: break-word;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
   .cta-text h2 {
     font-size: 1.8rem;
   }
@@ -2058,7 +2093,7 @@ body.menu-open {
   }
 
   .footer-logo-link img {
-    height: 90px;
+    height: 80px;
   }
 
   .footer-logo-link strong {
@@ -2340,7 +2375,7 @@ body.menu-open {
 
   /* --- Footer --- */
   .footer-logo-link img {
-    height: 80px;
+    height: 70px;
   }
 
   .footer-logo-link strong {
@@ -2399,6 +2434,10 @@ body.menu-open {
 
   .nav-logo img {
     height: 32px;
+  }
+
+  .footer-logo-link img {
+    height: 60px;
   }
 }
 
